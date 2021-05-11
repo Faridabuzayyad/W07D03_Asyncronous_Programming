@@ -1,3 +1,4 @@
+const express = require("express");
 const fs = require("fs");
 const axios = require("axios");
 
@@ -12,8 +13,8 @@ const readFile = () => {
 
   const writeFile = () => {
     fs.writeFile(
-        "./data.txt" ,
-        "Data I want to write",
+        "./text.txt" ,
+        "A new file has been created",
         (err)=>{
             if(err){
                 console.log("error")
@@ -21,4 +22,18 @@ const readFile = () => {
             console.log("Please Do not overwrite the data in this file")
         })
   };
+
+  const getPost = (id) => {
+    axios
+    .get('https://jsonplaceholder.typicode.com/posts')
+    .then((respone)=>{
+        console.log(respone)
+    })
+    .catch((err)=>{
+        throw err;
+    });
+  };
+  
+  getPost(1);
+  getPost(50);
 
