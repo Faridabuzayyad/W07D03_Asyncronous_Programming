@@ -10,3 +10,15 @@ const readFile = () => {
     })
   };
 
+  const writeFile = () => {
+    fs.writeFile(
+        "./data.txt" ,
+        "Data I want to write",
+        (err)=>{
+            if(err){
+                console.log("error")
+            };
+            console.log("Please Do not overwrite the data in this file")
+        })
+  };
+
