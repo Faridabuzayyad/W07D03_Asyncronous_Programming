@@ -129,9 +129,23 @@ const newPost = JSON.stringify({
     })
   };
   
-  updatePost(3, newPost);
+  //updatePost(3, newPost);
 
 
+
+//Q5
+
+const getUsers = async () => {
+    await axios.get('https://jsonplaceholder.typicode.com/users')
+    .then((response)=>{
+        console.log(response.data)
+    })
+    .catch((err)=>{
+        throw err
+    })
+  };
+
+getUsers();
 app.listen(PORT, () => {
     console.log('SERVER IS WORKING ON http://localhost:' + PORT);
   });
