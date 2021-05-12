@@ -87,9 +87,32 @@ const copyFile = async (fileName) => {
   //copyFile('data.txt');
   
 
-  //Q3
-
+//Q3
+// the API Expects JSON data to be sent and that's why `JSON.stringify` is used
+const post = JSON.stringify({
+    title: "JavaScript Basics",
+    body: "This post contains information about javaScript ",
+    // the id of the user who is going to create the post
+    userId: 1,
+  });
   
+const createPost = async (post) => {
+    await axios.post("https://jsonplaceholder.typicode.com/posts" , post)
+    .then((response)=>{
+        console.log(response.data)
+    })
+    .catch((err)=>{
+        throw err
+    })
+  };
+  
+  //createPost(post);
+
+
+//Q4
+
+
+
 app.listen(PORT, () => {
     console.log('SERVER IS WORKING ON http://localhost:' + PORT);
   });
