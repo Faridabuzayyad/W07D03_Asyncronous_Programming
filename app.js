@@ -62,10 +62,15 @@ const getPostAsync = async (data) => {
 
 //Q1
 
-const appendToFile = (data) => {
-    // TODO: Your code here
+const appendToFile = async (data) => {
+    try {
+        await fs.promises.appendFile('./data.txt', '\n' + data)
+      } catch (err) {
+        throw err;
+      }
   };
 
+  appendToFile('Farid');
 
   
 
