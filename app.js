@@ -111,6 +111,25 @@ const createPost = async (post) => {
 
 //Q4
 
+const newPost = JSON.stringify({
+    // the post id that we want to update, change it when trying to update another post
+    id: 1,
+    title: "Updated Title",
+    body: "Updated body",
+    userId: 1,
+  });
+  
+  const updatePost = async (postId, data) => {
+    await axios.put(`https://jsonplaceholder.typicode.com/posts/${postId}` , data)
+    .then((response)=>{
+        console.log(response.data)
+    })
+    .catch((err)=>{
+        throw err
+    })
+  };
+  
+  updatePost(3, newPost);
 
 
 app.listen(PORT, () => {
