@@ -40,8 +40,8 @@ const getPost = (id) => {
       });
   };
 
-  getPost(1);
-  getPost(50);
+  //getPost(1);
+  //getPost(50);
 
 
 //Pulse Check Q5
@@ -56,7 +56,8 @@ const getPostAsync = async (data) => {
       }
     };
 
-
+  //getPost(1);
+  //getPost(50);
 
 //Practice
 
@@ -69,12 +70,26 @@ const appendToFile = async (data) => {
       }
   };
 
-  appendToFile('Italia');
+  //appendToFile('Italia');
+
 //Q2
+const copyFile = async (fileName) => {
+    try {
+        await fs.promises.copyFile(`./${fileName}` , `./copy_of_${fileName}`);
+        console.log(done);
+    } catch {
+        console.log(`The ${fileName} could not be copied`)
+    }
+
+  };
 
 
+  //copyFile('data.txt');
   
 
+  //Q3
+
+  
 app.listen(PORT, () => {
     console.log('SERVER IS WORKING ON http://localhost:' + PORT);
   });
