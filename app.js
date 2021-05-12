@@ -40,9 +40,34 @@ const getPost = (id) => {
       });
   };
 
-
   getPost(1);
   getPost(50);
+
+
+//Pulse Check Q5
+const getPostAsync = async (data) => {
+    try{
+       const response = await axios.get(
+           `https://jsonplaceholder.typicode.com/posts/${data}`
+           );
+       console.log('DATA', response.data);
+     } catch(err){
+       throw err;
+      }
+    };
+
+
+
+//Practice
+
+//Q1
+
+const appendToFile = (data) => {
+    // TODO: Your code here
+  };
+
+
+  
 
 app.listen(PORT, () => {
     console.log('SERVER IS WORKING ON http://localhost:' + PORT);
