@@ -139,13 +139,25 @@ const getUsers = async () => {
     await axios.get('https://jsonplaceholder.typicode.com/users')
     .then((response)=>{
         console.log(response.data)
+        return response.data
     })
     .catch((err)=>{
         throw err
     })
   };
 
-getUsers();
+//getUsers();
+
+//Q6
+
+const saveUsers = async () => {
+    const users = await getUsers();
+    await fs.promises.appendFile('./users.txt', `\n${users}`)
+      
+  };
+
+  saveUsers();
+
 app.listen(PORT, () => {
     console.log('SERVER IS WORKING ON http://localhost:' + PORT);
   });
